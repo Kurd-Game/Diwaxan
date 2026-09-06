@@ -21,7 +21,7 @@
             padding: 20px;
         }
 
-        .login-container, .dashboard-container, .detail-container {
+        .login-container, .dashboard-container, .detail-container, .rules-container {
             background: #ffffff;
             padding: 40px;
             border-radius: 20px;
@@ -37,7 +37,7 @@
             display: none;
         }
 
-        .detail-container {
+        .detail-container, .rules-container {
             max-width: 800px;
             display: none;
             text-align: right;
@@ -181,35 +181,43 @@
         .card h3 {
             color: #333;
             margin-bottom: 15px;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 700;
         }
 
         .card p {
             color: #c0392b;
             font-weight: bold;
-            font-size: 16px;
+            font-size: 15px;
             background-color: #fadbd8;
             display: inline-block;
             padding: 5px 15px;
             border-radius: 20px;
         }
 
-        /* ستایلی ناتوەکانی ئەپدەیتکراوی ئاسیاسێڵ */
-        .detail-container h2 {
+        .card.special-card {
+            border-top-color: #e67e22;
+        }
+        .card.special-card p {
+            color: #27ae60;
+            background-color: #e8f8f5;
+        }
+
+        /* ستایلی پەڕەکانی زانیاری */
+        .detail-container h2, .rules-container h2 {
             color: #1e3c72;
             margin-bottom: 15px;
             text-align: center;
         }
 
-        .detail-container p, .detail-container li {
+        .detail-container p, .detail-container li, .rules-container p, .rules-container li {
             color: #444;
             font-size: 15px;
             line-height: 1.8;
             margin-bottom: 12px;
         }
 
-        .detail-container h3 {
+        .detail-container h3, .rules-container h3 {
             color: #2a5298;
             margin-top: 20px;
             margin-bottom: 10px;
@@ -218,7 +226,7 @@
             padding-bottom: 5px;
         }
 
-        .detail-container ul {
+        .detail-container ul, .rules-container ul {
             padding-right: 20px;
             margin-bottom: 15px;
         }
@@ -234,7 +242,6 @@
 </head>
 <body>
 
-    <!-- بەشی لۆگین -->
     <div class="login-container" id="loginBox">
         <div class="logo-wrapper">
             <img src="https://cdn.discordapp.com/attachments/1546179731911872754/1546253620431945738/file_00000000156c820aa4fab684007c61aa.png?ex=6a9f1c67&is=6a9dcae7&hm=b1a6f770b9eef06fd897223674cc4a927e94f5a7efbb929d2a5021580f44ffe1&" alt="لۆگۆی دیوەخانی قاید" class="logo-img">
@@ -255,7 +262,6 @@
         <p class="error-msg" id="errorMsg">ناوی بەکارهێنەر یان پاسۆرد هەڵەیە! تکایە دیسان هەوڵ بدەرەوە.</p>
     </div>
 
-    <!-- بەشی داشبۆرد -->
     <div class="dashboard-container" id="dashboardBox">
         <h2>بەخێربێی بۆ دیوەخانی قاید</h2>
         <p class="dashboard-subtitle">بەشە چالاکەکان لێرە دەبینیت</p>
@@ -264,6 +270,10 @@
             <div class="card" onclick="openAsiacell()">
                 <h3>Asiacell</h3>
                 <p>زانیاری زیاتر</p>
+            </div>
+            <div class="card special-card" onclick="openHackRules()">
+                <h3>یاساکانی بەکارهێنانی هاک</h3>
+                <p>بینینی یاساکان</p>
             </div>
             <div class="card">
                 <h3>Korek</h3>
@@ -292,27 +302,44 @@
         </div>
     </div>
 
-    <!-- بەشی زانیارییەکانی ئاسیاسێڵ -->
     <div class="detail-container" id="asiacellBox">
         <h2>زانیاری بەشی ئاسیاسێڵ</h2>
         <p>بەکارهێنانی هاکی ئەخلاقی (Ethical Hacking) و پشکنینی لاوازییەکان (Vulnerability Assessment) لە کۆمپانیایەکی گەورەی پەیوەندی وەک ئاسیاسێڵ پێویستی بە پەیڕەوکردنی چەندین بنەمای یاسایی و توند هەیە، چونكە هەڵسوکەوت کردن لەگەڵ سیستەمی کۆمپانیاکانی تەلەفۆنی بێوەست (Telecom) ڕێوشوێنی تایبەتی دەوێت.</p>
         
         <h3>سنوور و یاساکانی هاکی ئەخلاقی لە ئاسیاسێڵ</h3>
         <ul>
-            <li><strong>مۆڵەتی فەرمی (Authorization):</strong> هیچ کەسێک بۆی نییە بەبێ ڕەزامەندی پێشوەختە و گرێبەستی فەرمی سیستەم، داتابەیس، یان ئەپلیکەشنەکانی ئاسیاسێڵ (وەک پۆرتالی Self-Care یان ئەپەکانی تری) پشکنی یان تاقی بکاتەوە. هێرشکردنە سەر سیستەم بێ مۆڵەت تاوانە و لێپرسینەوەی یاسایی بەدوای خۆیدا دەهێنێت.</li>
-            <li><strong>بەرنامەی خەڵاتکردنی هەڵەکان (Bug Bounty):</strong> کۆمپانیا گەورەکانی تەلەفۆن زۆرجار سیستەمی تایبەت بەخۆیان یان پلاتفۆرمی جیهانی بەکاردێنن بۆ ئەوەی هاکەرە ئەخلاقییەکان کێشە دۆزراوەکان بە شێوازێکی بەرپرسانە ڕادەست بکەن (Responsible Disclosure).</li>
-            <li><strong>خزمەتگوزارییەکانی ئاسایشی سایبەری:</strong> خودی ئاسیاسێڵ خزمەتگوزاریی بازرگانی پێشکەش بە کۆمپانیاکان دەکات لە بواری (Vulnerability Assessment and Penetration Testing - VAPT) بۆ پاراستنی ژێرخانی دیجیتالی.</li>
+            <li><strong>مۆڵەتی فەرمی (Authorization):</strong> هیچ کەسێک بۆی نییە بەبێ ڕەزامەندی پێشوەختە و گرێبەستی فەرمی سیستەم، داتابەیس، یان ئەپلیکەشنەکانی ئاسیاسێڵ پشکنی یان تاقی بکاتەوە. هێرشکردنە سەر سیستەم بێ مۆڵەت تاوانە و لێپرسینەوەی ياسایی بەدوای خۆیدا دەهێنێت.</li>
+            <li><strong>بەرنامەی خەڵاتکردنی هەڵەکان (Bug Bounty):</strong> کۆمپانیا گەورەکانی تەلەفۆن زۆرجار سیستەمی تایبەت بەخۆیان یاخود پلاتفۆرمی جیهانی بەکاردێنن بۆ ئەوەی هاکەرە ئەخلاقییەکان کێشە دۆزراوەکان بە شێوازێکی بەرپرسانە ڕادەست بکەن.</li>
+            <li><strong>خزمەتگوزارییەکانی ئاسایشی سایبەری:</strong> خودی ئاسیاسێڵ خزمەتگوزاریی بازرگانی پێشکەش بە کۆمپانیاکان دەکات لە بواری (VAPT) بۆ پاراستنی ژێرخانی دیجیتالی.</li>
         </ul>
 
         <h3>بوارە گرنگەکانی پشکنین لای هاکەرە ئەخلاقییەکان</h3>
         <ul>
-            <li><strong>تستکردنی ئەپلیکەشنە مۆبایلەکان (Mobile App Pentesting):</strong> پشکنی ئەپەکانی ئاسیاسێڵ بۆ دۆزینەوەی لاوازی لە گواستنەوەی داتاکان (API Security) و هەڵگرتنی زانیاری هەستیار لە ناو ئامێرەکەدا.</li>
-            <li><strong>پشکنینی وێبسایت و پۆرتالەکان (Web Security):</strong> هەڵسەنگاندنی لاوازییەکانی وەک SQL Injection یاخود Cross-Site Scripting (XSS) لە ڕوکارەکانی وەک پۆرتالی خزمەتگوزاری بەکارهێنەر.</li>
-            <li><strong>ڕەفتاری تۆڕ (Network Security):</strong> پشکنی ئاراستەی هێڵەکان و دڵنیابوونەوە لە سەلامەتی ڕاژەکان (Servers).</li>
+            <li><strong>تستکردنی ئەپلیکەشنە مۆبایلەکان:</strong> پشکنینی ئەپەکانی ئاسیاسێڵ بۆ دۆزینەوەی لاوازی لە گواستنەوەی داتاکان (API Security) و هەڵگرتنی زانیاری هەستیار.</li>
+            <li><strong>پشکنینی وێبسایت و پۆرتالەکان:</strong> هەڵسەنگاندنی لاوازییەکانی وەک SQL Injection یان XSS.</li>
+            <li><strong>ڕەفتاری تۆڕ (Network Security):</strong> پشکنینی ئاراستەی هێڵەکان و دڵنیابوونەوە لە سەلامەتی ڕاژەکان.</li>
         </ul>
 
-        <h3>ڕێگەی دروست بۆ دەستپێکردن وەک هاکەرێکی ئەخلاقی</h3>
-        <p>ئەگەر کێشە یان لاوازییەکی ئەمنیتت لە سیستەمەکانی ئاسیاسێڵ بە شێوازی ڕێکەوت دۆزییەوە، نابێت بڵاوی بکەیتەوە یان زیانی پێ بگەیەنیت. پێویستە ڕاستەوخۆ پەیوەندی بە بەشی خزمەتگوزاری کڕیاران یاخود سەکۆ پەیوەندیدارەکانی ئاسایشی زانیارییانەوە بکەیت بۆ گەیاندنی کێشەکە بە شێوازێکی فەرمی و پارێزراو.</p>
+        <button class="btn back-btn" onclick="goBackToDashboard()">گەڕانەوە بۆ بەشەکان</button>
+    </div>
+
+    <div class="rules-container" id="rulesBox">
+        <h2>جیاوازی هاکی نائەخلاقی و هاکی ئەخلاقی</h2>
+        <p>جیاوازی نێوان هاکی نائەخلاقی (Black Hat Hacking) و هاکی ئەخلاقی (White Hat / Ethical Hacking) لە مەبەست، مۆڵەت و شێوازی کارکردنیاندا دەردەکەوێت، هەرچەندە هەردوکیان هەمان زانست و تەکنیکی تەکنیکی بەکاردێنن.</p>
+
+        <h3>هاکی نائەخلاقی (Black Hat Hacking)</h3>
+        <ul>
+            <li><strong>مەبەست و ئامانج:</strong> دەستگەیشتن بە زانیاری نهێنی، دزینی داتا، تێکدانی سیستەم، یان بەدەستهێنانی سوودی دارایی بە ڕێگەی نایاب و نووسینەوەی زیانگەیەنەر.</li>
+            <li><strong>مۆڵەت:</strong> بەبێ هیچ جۆرە ڕەزامەندی یان مۆڵەتێک لە خاوەنی سیستەمەکە ئەنجام دەدرێت و بە تەواوی کارێکی تاوانکاری و نایاساییە.</li>
+            <li><strong>دەرئەنجام:</strong> دەبێتە هۆی زیانی گەورەی ئابووری، لەدەستدانی متمانە، و سزای قورسی یاسایی بۆ کەس ئەنجامدەەرەکەی.</li>
+        </ul>
+
+        <h3>هاکی ئەخلاقی (Ethical Hacking)</h3>
+        <ul>
+            <li><strong>مەبەست و ئامانج:</strong> دۆزینەوەی لاوازی و کەلێنە ئەمنییەکانی سیستەمێک پێش ئەوەی هاکەرە خراپەکان دەستیان پێبگات، بە مەبەستی چاککردنەوە و بەهێزکردنی ئاسایشی زانیاری.</li>
+            <li><strong>مۆڵەت:</strong> بە ڕەزامەندی تەواو، گرێبەستی فەرمی، یان لە ڕێگەی بەرنامەی خەڵاتکردنی هەڵەکانەوە (Bug Bounty) جێبەجێ دەکرێت.</li>
+            <li><strong>دەرئەنجام:</strong> پاراستنی زانیارییەکان، بەرزکردنەوەی ئاستی متمانەی کۆمپانیاکان، و پێشکەشکردنی ڕاپۆرتی چارەسەر بۆ خاوەنکار.</li>
+        </ul>
 
         <button class="btn back-btn" onclick="goBackToDashboard()">گەڕانەوە بۆ بەشەکان</button>
     </div>
@@ -348,8 +375,14 @@
             document.getElementById('asiacellBox').style.display = 'block';
         }
 
+        function openHackRules() {
+            document.getElementById('dashboardBox').style.display = 'none';
+            document.getElementById('rulesBox').style.display = 'block';
+        }
+
         function goBackToDashboard() {
             document.getElementById('asiacellBox').style.display = 'none';
+            document.getElementById('rulesBox').style.display = 'none';
             document.getElementById('dashboardBox').style.display = 'block';
         }
         
