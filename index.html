@@ -13,32 +13,33 @@
         }
 
         body {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #0b132b, #1c2541);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
+            color: #ffffff;
         }
 
-        .login-container, .dashboard-container, .detail-container, .rules-container {
-            background: #ffffff;
+        .login-container, .dashboard-container, .detail-container, .rules-container, .diwan-container {
+            background: #121826;
             padding: 40px;
             border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
             width: 100%;
             max-width: 450px;
             text-align: center;
-            border: 1px solid #ddd;
+            border: 1px solid #1f293d;
         }
 
         .dashboard-container {
-            max-width: 850px;
+            max-width: 900px;
             display: none;
         }
 
-        .detail-container, .rules-container {
-            max-width: 800px;
+        .detail-container, .rules-container, .diwan-container {
+            max-width: 850px;
             display: none;
             text-align: right;
             max-height: 85vh;
@@ -55,7 +56,7 @@
             background-size: cover;
             background-position: center;
             padding: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -66,17 +67,17 @@
             height: 100%;
             object-fit: cover;
             border-radius: 50%;
-            background-color: #fff;
+            background-color: #0b132b;
         }
 
         h2 {
             margin-bottom: 10px;
-            color: #333;
+            color: #ffffff;
             font-weight: 700;
         }
 
         .subtitle {
-            color: #666;
+            color: #94a3b8;
             margin-bottom: 30px;
             font-size: 15px;
         }
@@ -89,7 +90,7 @@
         .input-group label {
             display: block;
             margin-bottom: 8px;
-            color: #555;
+            color: #cbd5e1;
             font-weight: 600;
             font-size: 14px;
         }
@@ -97,22 +98,22 @@
         .input-group input {
             width: 100%;
             padding: 15px;
-            border: 1px solid #ddd;
+            border: 1px solid #334155;
             border-radius: 10px;
             font-size: 16px;
             outline: none;
             transition: 0.3s;
-            background-color: #f9f9f9;
+            background-color: #1e293b;
+            color: #fff;
         }
 
         .input-group input:focus {
-            border-color: #1e3c72;
-            box-shadow: 0 0 8px rgba(30, 60, 114, 0.2);
-            background-color: #fff;
+            border-color: #f59e0b;
+            box-shadow: 0 0 8px rgba(245, 158, 11, 0.3);
         }
 
         .btn {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #d97706, #b45309);
             color: white;
             border: none;
             padding: 15px;
@@ -126,32 +127,32 @@
         }
 
         .btn:hover {
-            background: linear-gradient(135deg, #2a5298, #1e3c72);
-            box-shadow: 0 5px 15px rgba(30, 60, 114, 0.4);
+            background: linear-gradient(135deg, #b45309, #d97706);
+            box-shadow: 0 5px 15px rgba(217, 119, 6, 0.4);
         }
 
         .error-msg {
-            color: #d9534f;
+            color: #fca5a5;
             margin-top: 15px;
             font-size: 14px;
             display: none;
-            background-color: #f2dede;
+            background-color: #7f1d1d;
             padding: 10px;
             border-radius: 8px;
-            border: 1px solid #ebcccc;
+            border: 1px solid #991b1b;
         }
 
-        /* بەشەکانی ناوەوە (داشبۆرد) */
+        /* بەشەکانی داشبۆرد */
         .dashboard-container h2 {
             text-align: center;
             margin-bottom: 10px;
-            color: #1e3c72;
+            color: #f8fafc;
         }
         
         .dashboard-subtitle {
             text-align: center;
             margin-bottom: 30px;
-            color: #555;
+            color: #94a3b8;
         }
 
         .grid-container {
@@ -161,68 +162,78 @@
         }
 
         .card {
-            background: linear-gradient(to bottom right, #ffffff, #f0f2f5);
-            border: none;
+            background: #1e293b;
+            border: 1px solid #334155;
             padding: 30px 20px;
             border-radius: 15px;
-            box-shadow: 0 6px 10px rgba(0,0,0,0.08);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.2);
             transition: 0.4s;
-            border-top: 5px solid #1e3c72;
+            border-top: 5px solid #3b82f6;
             text-align: center;
             cursor: pointer;
         }
 
         .card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-            border-top-color: #f1c40f;
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.3);
+            border-top-color: #f59e0b;
         }
 
         .card h3 {
-            color: #333;
+            color: #f8fafc;
             margin-bottom: 15px;
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 700;
         }
 
         .card p {
-            color: #c0392b;
+            color: #ef4444;
             font-weight: bold;
-            font-size: 15px;
-            background-color: #fadbd8;
+            font-size: 14px;
+            background-color: rgba(239, 68, 68, 0.1);
             display: inline-block;
-            padding: 5px 15px;
+            padding: 5px 12px;
             border-radius: 20px;
         }
 
+        /* کارتی تایبەتی دیوەخان و هاک */
         .card.special-card {
-            border-top-color: #e67e22;
+            border-top-color: #10b981;
         }
         .card.special-card p {
-            color: #27ae60;
-            background-color: #e8f8f5;
+            color: #10b981;
+            background-color: rgba(16, 185, 129, 0.1);
         }
 
-        /* ستایلی پەڕەکانی زانیاری */
-        .detail-container h2, .rules-container h2 {
-            color: #1e3c72;
+        .card.diwan-card {
+            border-top-color: #f59e0b;
+            background: linear-gradient(135deg, #1e293b, #273548);
+        }
+        .card.diwan-card p {
+            color: #f59e0b;
+            background-color: rgba(245, 158, 11, 0.15);
+        }
+
+        /* ستایلی پەڕەکانی ناوەوە */
+        .detail-container h2, .rules-container h2, .diwan-container h2 {
+            color: #f59e0b;
             margin-bottom: 15px;
             text-align: center;
         }
 
-        .detail-container p, .detail-container li, .rules-container p, .rules-container li {
-            color: #444;
+        .detail-container p, .detail-container li, .rules-container p, .rules-container li, .diwan-container p {
+            color: #cbd5e1;
             font-size: 15px;
             line-height: 1.8;
             margin-bottom: 12px;
         }
 
-        .detail-container h3, .rules-container h3 {
-            color: #2a5298;
+        .detail-container h3, .rules-container h3, .diwan-container h3 {
+            color: #60a5fa;
             margin-top: 20px;
             margin-bottom: 10px;
             font-size: 18px;
-            border-bottom: 2px solid #eee;
+            border-bottom: 2px solid #334155;
             padding-bottom: 5px;
         }
 
@@ -231,12 +242,31 @@
             margin-bottom: 15px;
         }
 
+        /* دیزاینی تایبەتی بەشی دیوەخانی قاید */
+        .diwan-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 20px;
+        }
+
+        .diwan-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #f59e0b;
+        }
+
         .back-btn {
-            background: #6c757d;
+            background: #475569;
             margin-top: 25px;
         }
         .back-btn:hover {
-            background: #5a6268;
+            background: #334155;
         }
     </style>
 </head>
@@ -263,10 +293,14 @@
     </div>
 
     <div class="dashboard-container" id="dashboardBox">
-        <h2>بەخێربێی بۆ دیوەخانی قاید</h2>
-        <p class="dashboard-subtitle">بەشە چالاکەکان لێرە دەبینیت</p>
+        <h2>بەخێربێی بۆ دەسەڵاتی قاید</h2>
+        <p class="dashboard-subtitle">بەشە ئەمنی و پەیوەندیدارەکان</p>
         
         <div class="grid-container">
+            <div class="card diwan-card" onclick="openDiwan()">
+                <h3>دیــوەخــانــی قــایــد</h3>
+                <p>سیستەمی ناوەندی</p>
+            </div>
             <div class="card" onclick="openAsiacell()">
                 <h3>Asiacell</h3>
                 <p>زانیاری زیاتر</p>
@@ -302,22 +336,36 @@
         </div>
     </div>
 
+    <div class="diwan-container" id="diwanBox">
+        <div class="diwan-header">
+            <img src="https://cdn.discordapp.com/attachments/1546179731911872754/1546253620431945738/file_00000000156c820aa4fab684007c61aa.png?ex=6a9f1c67&is=6a9dcae7&hm=b1a6f770b9eef06fd897223674cc4a927e94f5a7efbb929d2a5021580f44ffe1&" alt="لۆگۆ" class="diwan-logo">
+            <div>
+                <h2>دیــوەخــانــی قــایــد</h2>
+                <p>ناوەندی فەرمانڕەوایی و شیکاری سایبەری</p>
+            </div>
+        </div>
+
+        <p>دیوەخانی قاید ناوەندێکی سەربەخۆ و پێشکەوتووە بۆ بەڕێوەبردن، لێکۆڵینەوە، و پاراستنی زانیارییەکان لەسەر ئاستی بەرز. ئەم سیستەمە پێکدێت لە ژینگەیەکی هەمۆلگری پشکنین و کۆنتڕۆڵی تەواو بەسەر ژێرخانی دیجیتالیدا.</p>
+
+        <h3>تایبەتمەندییە سەرەکییەکانی دیوەخان</h3>
+        <ul>
+            <li><strong>ژینگەی شیکاری پێشکەوتوو:</strong> بەکارهێنانی پلاتفۆرمی شیکاری و نەخشەی جوگرافی بۆ بەدواداچوونی چالاکییەکان.</li>
+            <li><strong>أمنێت و چاودێری توند:</strong> پاراستنی داتاکان بە سیستەمی هەمەچەشن و شفرەکردنی باڵا.</li>
+            <li><strong>تیمی شارەزا:</strong> پشتبەستن بە بنەماکانی هاکی ئەخلاقی و پێوانە نێودەوڵەتییەکان لە پاراستنی سیستەمدا.</li>
+        </ul>
+
+        <button class="btn back-btn" onclick="goBackToDashboard()">گەڕانەوە بۆ داشبۆرد</button>
+    </div>
+
     <div class="detail-container" id="asiacellBox">
         <h2>زانیاری بەشی ئاسیاسێڵ</h2>
         <p>بەکارهێنانی هاکی ئەخلاقی (Ethical Hacking) و پشکنینی لاوازییەکان (Vulnerability Assessment) لە کۆمپانیایەکی گەورەی پەیوەندی وەک ئاسیاسێڵ پێویستی بە پەیڕەوکردنی چەندین بنەمای یاسایی و توند هەیە، چونكە هەڵسوکەوت کردن لەگەڵ سیستەمی کۆمپانیاکانی تەلەفۆنی بێوەست (Telecom) ڕێوشوێنی تایبەتی دەوێت.</p>
         
         <h3>سنوور و یاساکانی هاکی ئەخلاقی لە ئاسیاسێڵ</h3>
         <ul>
-            <li><strong>مۆڵەتی فەرمی (Authorization):</strong> هیچ کەسێک بۆی نییە بەبێ ڕەزامەندی پێشوەختە و گرێبەستی فەرمی سیستەم، داتابەیس، یان ئەپلیکەشنەکانی ئاسیاسێڵ پشکنی یان تاقی بکاتەوە. هێرشکردنە سەر سیستەم بێ مۆڵەت تاوانە و لێپرسینەوەی ياسایی بەدوای خۆیدا دەهێنێت.</li>
+            <li><strong>مۆڵەتی فەرمی (Authorization):</strong> هیچ کەسێک بۆی نییە بەبێ ڕەزامەندی پێشوەختە و گرێبەستی فەرمی سیستەم، داتابەیس، یان ئەپلیکەشنەکانی ئاسیاسێڵ پشکنی یان تاقی بکاتەوە. هێرشکردنە سەر سیستەم بێ مۆڵەت تاوانە و لێپرسینەوەی یاسایی بەدوای خۆیدا دەهێنێت.</li>
             <li><strong>بەرنامەی خەڵاتکردنی هەڵەکان (Bug Bounty):</strong> کۆمپانیا گەورەکانی تەلەفۆن زۆرجار سیستەمی تایبەت بەخۆیان یاخود پلاتفۆرمی جیهانی بەکاردێنن بۆ ئەوەی هاکەرە ئەخلاقییەکان کێشە دۆزراوەکان بە شێوازێکی بەرپرسانە ڕادەست بکەن.</li>
             <li><strong>خزمەتگوزارییەکانی ئاسایشی سایبەری:</strong> خودی ئاسیاسێڵ خزمەتگوزاریی بازرگانی پێشکەش بە کۆمپانیاکان دەکات لە بواری (VAPT) بۆ پاراستنی ژێرخانی دیجیتالی.</li>
-        </ul>
-
-        <h3>بوارە گرنگەکانی پشکنین لای هاکەرە ئەخلاقییەکان</h3>
-        <ul>
-            <li><strong>تستکردنی ئەپلیکەشنە مۆبایلەکان:</strong> پشکنینی ئەپەکانی ئاسیاسێڵ بۆ دۆزینەوەی لاوازی لە گواستنەوەی داتاکان (API Security) و هەڵگرتنی زانیاری هەستیار.</li>
-            <li><strong>پشکنینی وێبسایت و پۆرتالەکان:</strong> هەڵسەنگاندنی لاوازییەکانی وەک SQL Injection یان XSS.</li>
-            <li><strong>ڕەفتاری تۆڕ (Network Security):</strong> پشکنینی ئاراستەی هێڵەکان و دڵنیابوونەوە لە سەلامەتی ڕاژەکان.</li>
         </ul>
 
         <button class="btn back-btn" onclick="goBackToDashboard()">گەڕانەوە بۆ بەشەکان</button>
@@ -370,6 +418,11 @@
             }
         }
 
+        function openDiwan() {
+            document.getElementById('dashboardBox').style.display = 'none';
+            document.getElementById('diwanBox').style.display = 'block';
+        }
+
         function openAsiacell() {
             document.getElementById('dashboardBox').style.display = 'none';
             document.getElementById('asiacellBox').style.display = 'block';
@@ -381,6 +434,7 @@
         }
 
         function goBackToDashboard() {
+            document.getElementById('diwanBox').style.display = 'none';
             document.getElementById('asiacellBox').style.display = 'none';
             document.getElementById('rulesBox').style.display = 'none';
             document.getElementById('dashboardBox').style.display = 'block';
