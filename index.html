@@ -14,13 +14,14 @@
 
         body {
             background: linear-gradient(135deg, #1e3c72, #2a5298);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
         }
 
-        .login-container, .dashboard-container {
+        .login-container, .dashboard-container, .detail-container {
             background: #ffffff;
             padding: 40px;
             border-radius: 20px;
@@ -33,17 +34,39 @@
 
         .dashboard-container {
             max-width: 850px;
-            display: none; /* سەرەتا شاراوەیە */
+            display: none;
         }
 
-        /* ستایلی لۆگۆ */
+        .detail-container {
+            max-width: 800px;
+            display: none;
+            text-align: right;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        /* ستایلی چوارچێوەی جوڵاوی لۆگۆ */
+        .logo-wrapper {
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px auto;
+            border-radius: 50%;
+            background-image: url('https://cdn.discordapp.com/attachments/1546179731911872754/1546255074848804904/giphy-1-1.gif?ex=6a9f1dc1&is=6a9dcc41&hm=98304d5f6509a5221dd4b2725e54fd7d84f9ea76cb2e0879394c1c993401357b&');
+            background-size: cover;
+            background-position: center;
+            padding: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         .logo-img {
-            max-width: 150px; /* قەبارەی لۆگۆ */
-            height: auto;
-            margin-bottom: 20px;
-            border-radius: 50%; /* ئەگەر دەتەوێت بازنەیی بێت، دەتوانیت ئەمە بهێڵیتەوە یان بیسڕیتەوە */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background-color: #fff;
         }
 
         h2 {
@@ -118,13 +141,15 @@
             border: 1px solid #ebcccc;
         }
 
-        /* ستایلی بەشەکانی ناوەوە (داشبۆرد) */
+        /* بەشەکانی ناوەوە (داشبۆرد) */
         .dashboard-container h2 {
+            text-align: center;
             margin-bottom: 10px;
             color: #1e3c72;
         }
         
         .dashboard-subtitle {
+            text-align: center;
             margin-bottom: 30px;
             color: #555;
         }
@@ -143,6 +168,8 @@
             box-shadow: 0 6px 10px rgba(0,0,0,0.08);
             transition: 0.4s;
             border-top: 5px solid #1e3c72;
+            text-align: center;
+            cursor: pointer;
         }
 
         .card:hover {
@@ -167,14 +194,51 @@
             padding: 5px 15px;
             border-radius: 20px;
         }
+
+        /* ستایلی ناتوەکانی ئەپدەیتکراوی ئاسیاسێڵ */
+        .detail-container h2 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .detail-container p, .detail-container li {
+            color: #444;
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+
+        .detail-container h3 {
+            color: #2a5298;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .detail-container ul {
+            padding-right: 20px;
+            margin-bottom: 15px;
+        }
+
+        .back-btn {
+            background: #6c757d;
+            margin-top: 25px;
+        }
+        .back-btn:hover {
+            background: #5a6268;
+        }
     </style>
 </head>
 <body>
 
     <!-- بەشی لۆگین -->
     <div class="login-container" id="loginBox">
-        <!-- لۆگۆ بە بەکارهێنانی لینکی دیسکۆرد -->
-        <img src="https://cdn.discordapp.com/attachments/1546179731911872754/1546253620431945738/file_00000000156c820aa4fab684007c61aa.png?ex=6a9f1c67&is=6a9dcae7&hm=b1a6f770b9eef06fd897223674cc4a927e94f5a7efbb929d2a5021580f44ffe1&" alt="لۆگۆی دیوەخانی قاید" class="logo-img">
+        <div class="logo-wrapper">
+            <img src="https://cdn.discordapp.com/attachments/1546179731911872754/1546253620431945738/file_00000000156c820aa4fab684007c61aa.png?ex=6a9f1c67&is=6a9dcae7&hm=b1a6f770b9eef06fd897223674cc4a927e94f5a7efbb929d2a5021580f44ffe1&" alt="لۆگۆی دیوەخانی قاید" class="logo-img">
+        </div>
         
         <h2>چوونەژوورەوە</h2>
         <p class="subtitle">تکایە زانیارییەکانت بنووسە بۆ چوونە دیوەخان</p>
@@ -191,15 +255,15 @@
         <p class="error-msg" id="errorMsg">ناوی بەکارهێنەر یان پاسۆرد هەڵەیە! تکایە دیسان هەوڵ بدەرەوە.</p>
     </div>
 
-    <!-- بەشی داشبۆرد (پاش سەرکەوتنی لۆگین دەردەکەوێت) -->
+    <!-- بەشی داشبۆرد -->
     <div class="dashboard-container" id="dashboardBox">
         <h2>بەخێربێی بۆ دیوەخانی قاید</h2>
         <p class="dashboard-subtitle">بەشە چالاکەکان لێرە دەبینیت</p>
         
         <div class="grid-container">
-            <div class="card">
+            <div class="card" onclick="openAsiacell()">
                 <h3>Asiacell</h3>
-                <p>بـــەم زووانـــە</p>
+                <p>زانیاری زیاتر</p>
             </div>
             <div class="card">
                 <h3>Korek</h3>
@@ -228,6 +292,31 @@
         </div>
     </div>
 
+    <!-- بەشی زانیارییەکانی ئاسیاسێڵ -->
+    <div class="detail-container" id="asiacellBox">
+        <h2>زانیاری بەشی ئاسیاسێڵ</h2>
+        <p>بەکارهێنانی هاکی ئەخلاقی (Ethical Hacking) و پشکنینی لاوازییەکان (Vulnerability Assessment) لە کۆمپانیایەکی گەورەی پەیوەندی وەک ئاسیاسێڵ پێویستی بە پەیڕەوکردنی چەندین بنەمای یاسایی و توند هەیە، چونكە هەڵسوکەوت کردن لەگەڵ سیستەمی کۆمپانیاکانی تەلەفۆنی بێوەست (Telecom) ڕێوشوێنی تایبەتی دەوێت.</p>
+        
+        <h3>سنوور و یاساکانی هاکی ئەخلاقی لە ئاسیاسێڵ</h3>
+        <ul>
+            <li><strong>مۆڵەتی فەرمی (Authorization):</strong> هیچ کەسێک بۆی نییە بەبێ ڕەزامەندی پێشوەختە و گرێبەستی فەرمی سیستەم، داتابەیس، یان ئەپلیکەشنەکانی ئاسیاسێڵ (وەک پۆرتالی Self-Care یان ئەپەکانی تری) پشکنی یان تاقی بکاتەوە. هێرشکردنە سەر سیستەم بێ مۆڵەت تاوانە و لێپرسینەوەی یاسایی بەدوای خۆیدا دەهێنێت.</li>
+            <li><strong>بەرنامەی خەڵاتکردنی هەڵەکان (Bug Bounty):</strong> کۆمپانیا گەورەکانی تەلەفۆن زۆرجار سیستەمی تایبەت بەخۆیان یان پلاتفۆرمی جیهانی بەکاردێنن بۆ ئەوەی هاکەرە ئەخلاقییەکان کێشە دۆزراوەکان بە شێوازێکی بەرپرسانە ڕادەست بکەن (Responsible Disclosure).</li>
+            <li><strong>خزمەتگوزارییەکانی ئاسایشی سایبەری:</strong> خودی ئاسیاسێڵ خزمەتگوزاریی بازرگانی پێشکەش بە کۆمپانیاکان دەکات لە بواری (Vulnerability Assessment and Penetration Testing - VAPT) بۆ پاراستنی ژێرخانی دیجیتالی.</li>
+        </ul>
+
+        <h3>بوارە گرنگەکانی پشکنین لای هاکەرە ئەخلاقییەکان</h3>
+        <ul>
+            <li><strong>تستکردنی ئەپلیکەشنە مۆبایلەکان (Mobile App Pentesting):</strong> پشکنی ئەپەکانی ئاسیاسێڵ بۆ دۆزینەوەی لاوازی لە گواستنەوەی داتاکان (API Security) و هەڵگرتنی زانیاری هەستیار لە ناو ئامێرەکەدا.</li>
+            <li><strong>پشکنینی وێبسایت و پۆرتالەکان (Web Security):</strong> هەڵسەنگاندنی لاوازییەکانی وەک SQL Injection یاخود Cross-Site Scripting (XSS) لە ڕوکارەکانی وەک پۆرتالی خزمەتگوزاری بەکارهێنەر.</li>
+            <li><strong>ڕەفتاری تۆڕ (Network Security):</strong> پشکنی ئاراستەی هێڵەکان و دڵنیابوونەوە لە سەلامەتی ڕاژەکان (Servers).</li>
+        </ul>
+
+        <h3>ڕێگەی دروست بۆ دەستپێکردن وەک هاکەرێکی ئەخلاقی</h3>
+        <p>ئەگەر کێشە یان لاوازییەکی ئەمنیتت لە سیستەمەکانی ئاسیاسێڵ بە شێوازی ڕێکەوت دۆزییەوە، نابێت بڵاوی بکەیتەوە یان زیانی پێ بگەیەنیت. پێویستە ڕاستەوخۆ پەیوەندی بە بەشی خزمەتگوزاری کڕیاران یاخود سەکۆ پەیوەندیدارەکانی ئاسایشی زانیارییانەوە بکەیت بۆ گەیاندنی کێشەکە بە شێوازێکی فەرمی و پارێزراو.</p>
+
+        <button class="btn back-btn" onclick="goBackToDashboard()">گەڕانەوە بۆ بەشەکان</button>
+    </div>
+
     <script>
         function checkLogin() {
             const user = document.getElementById('username').value.trim();
@@ -252,6 +341,16 @@
                 error.style.animation = 'shake 0.5s';
                 setTimeout(() => { error.style.animation = ""; }, 500);
             }
+        }
+
+        function openAsiacell() {
+            document.getElementById('dashboardBox').style.display = 'none';
+            document.getElementById('asiacellBox').style.display = 'block';
+        }
+
+        function goBackToDashboard() {
+            document.getElementById('asiacellBox').style.display = 'none';
+            document.getElementById('dashboardBox').style.display = 'block';
         }
         
         const styleSheet = document.createElement("style");
