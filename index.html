@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> </title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Noto Kufi Arabic',sans-serif; }
+
+  body {
+    background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e, #1a1a2e);
+    background-size: 400% 400%;
+    animation: gradientBG 12s ease infinite;
+    color:#fff; min-height:100vh;
+  }
+  @keyframes gradientBG {
+    0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%}
+  }
+
+  header {
+    text-align:center; padding:50px 20px 30px;
+    animation: fadeDown 1s ease;
+  }
+  header h1 {
+    font-size:2.5rem;
+    background: linear-gradient(90deg,#00d2ff,#928dab,#00d2ff);
+    background-size:200%;
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+    animation: shine 4s linear infinite;
+  }
+  @keyframes shine { to { background-position:-200%; } }
+  header p { color:#aaa; margin-top:10px; }
+
+  .search-box {
+    display:flex; justify-content:center; margin:25px auto; gap:10px;
+    animation: fadeUp 1.2s ease;
+  }
+  .search-box input {
+    padding:12px 20px; width:280px; border:none; border-radius:30px;
+    outline:none; font-size:1rem; background:rgba(255,255,255,.1);
+    color:#fff; border:1px solid rgba(255,255,255,.2); backdrop-filter:blur(5px);
+  }
+  .search-box button {
+    padding:12px 30px; border:none; border-radius:30px; cursor:pointer;
+    background:linear-gradient(90deg,#00d2ff,#3a7bd5); color:#fff; font-weight:bold;
+    transition:transform .3s;
+  }
+  .search-box button:hover { transform:scale(1.1); }
+
+  .stats {
+    display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin:20px;
+  }
+  .stat {
+    background:rgba(255,255,255,.07); padding:20px 40px; border-radius:15px;
+    text-align:center; border:1px solid rgba(255,255,255,.15);
+    transition:.3s; animation: fadeUp 1.4s ease;
+  }
+  .stat:hover { transform:translateY(-8px); box-shadow:0 10px 30px rgba(0,210,255,.2); }
+  .stat h2 { font-size:2rem; color:#00d2ff; }
+
+  .grid {
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:25px; padding:30px 5% 60px; max-width:1200px; margin:auto;
+  }
+  .card {
+    background:rgba(255,255,255,.06); border-radius:18px; overflow:hidden;
+    border:1px solid rgba(255,255,255,.12); backdrop-filter:blur(10px);
+    transition:.4s; opacity:0; animation: fadeUp .8s ease forwards;
+  }
+  .card:nth-child(odd){animation-delay:.15s}
+  .card:hover { transform:translateY(-10px) scale(1.02); box-shadow:0 15px 40px rgba(0,0,0,.5); }
+
+  .card img { width:100%; height:170px; object-fit:cover; }
+  .card .body { padding:15px; }
+  .card .num {
+    display:inline-block; background:linear-gradient(90deg,#00d2ff,#3a7bd5);
+    padding:3px 14px; border-radius:20px; font-size:.85rem; font-weight:bold; margin-bottom:8px;
+  }
+  .card h3 { font-size:1.05rem; margin-bottom:6px; }
+  .card p { font-size:.85rem; color:#bbb; }
+
+  footer { text-align:center; padding:25px; color:#777; border-top:1px solid rgba(255,255,255,.1); }
+
+  @keyframes fadeUp { from{opacity:0; transform:translateY(30px)} to{opacity:1; transform:translateY(0)} }
+  @keyframes fadeDown { from{opacity:0; transform:translateY(-30px)} to{opacity:1} }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>  </h1>
+  <p>     </p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="   ...">
+  <button onclick="searchData()"></button>
+</div>
+
+<div class="stats">
+  <div class="stat"><h2 id="count">6</h2><p> </p></div>
+  <div class="stat"><h2>100%</h2><p></p></div>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<footer>© 2026   </footer>
+
+<script>
+  //   —      
+  const data = [
+    {id:1, name:" ", num:"0750xxxxx01", img:"https://picsum.photos/seed/a1/400/250", desc:" "},
+    {id:2, name:" ", num:"0750xxxxx02", img:"https://picsum.photos/seed/b2/400/250", desc:" "},
+    {id:3, name:" ", num:"0750xxxxx03", img:"https://picsum.photos/seed/c3/400/250", desc:" "},
+    {id:4, name:" ", num:"0750xxxxx04", img:"https://picsum.photos/seed/d4/400/250", desc:" "},
+    {id:5, name:" ", num:"0750xxxxx05", img:"https://picsum.photos/seed/e5/400/250", desc:" "},
+    {id:6, name:" ", num:"0750xxxxx06", img:"https://picsum.photos/seed/f6/400/250", desc:" "},
+  ];
+
+  const grid = document.getElementById("grid");
+
+  function render(list){
+    grid.innerHTML = "";
+    list.forEach(item => {
+      grid.innerHTML += `
+        <div class="card">
+          <img src="${item.img}" alt="">
+          <div class="body">
+            <span class="num">#${item.id}</span>
+            <h3>${item.name}</h3>
+            <p> ${item.num}</p>
+            <p>${item.desc}</p>
+          </div>
+        </div>`;
+    });
+    document.getElementById("count").textContent = list.length;
+  }
+
+  function searchData(){
+    const q = document.getElementById("searchInput").value.trim();
+    const result = data.filter(d => d.name.includes(q) || d.num.includes(q));
+    render(result.length ? result : data);
+  }
+
+  render(data);
+</script>
+
+</body>
+</html>
